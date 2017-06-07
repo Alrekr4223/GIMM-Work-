@@ -1,0 +1,20 @@
+
+These are just general notes
+
+
+
+
+ - Debug the console log on a android phone - 
+
+Connect an android phone to the PC and push the app from Unity to the phone. 
+
+Open command prompt. Navigate to C:/Users/Labuser/Appdata/local/android/sdk/platform-tools.*
+*Note: 'Labuser' would be your user on the computer. 'Labuser' is used on GIMM Lab computers.
+*Note: You may need to change hidden folders to unhidden to find Appdata. 
+
+Once at platform-tools on the command prompt, run the following command: 
+adb logcat -s Unity ActivityManager PackageManager dalvikvm DEBUG
+
+This will allow you to see all actions taken by the currently connected android phone. 
+
+ 
