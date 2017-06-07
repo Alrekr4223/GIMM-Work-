@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Indicator
+  - ZButton1
+  - ZButton2
+  - ZButton3
   layers:
   - Default
   - TransparentFX
