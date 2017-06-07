@@ -284,7 +284,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Ideal_Image_TargetMaterial
+  m_Name: chipsMaterial
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -326,7 +326,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: ed8852cd9ec035a41a8a2a53ae7409d4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0c748ad306fb1b845b78067717fcfedc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -461,7 +461,7 @@ Prefab:
     - target: {fileID: 2300002, guid: 16cb0fae32c171a4bbcd58db2e2fac02, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a0f5295e7ee0e124d878dc1bdb87a06c, type: 2}
+      objectReference: {fileID: 2100000, guid: 4502f21f521095642b9b006e2674d7c6, type: 2}
     - target: {fileID: 100002, guid: 16cb0fae32c171a4bbcd58db2e2fac02, type: 3}
       propertyPath: m_Name
       value: Cup For HoldingV2 (5)
@@ -1549,6 +1549,10 @@ Prefab:
     - target: {fileID: 100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
