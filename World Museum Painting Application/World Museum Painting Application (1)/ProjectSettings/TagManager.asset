@@ -8,6 +8,8 @@ TagManager:
   - ZButton1
   - ZButton2
   - ZButton3
+  - MoveableCup
+  - SliderBtn
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,6 @@ public class InputHandler : MonoBehaviour
 						Debug.Log ("Moveable Object: " + movableObj.name);
 						if (movableObj) {
 							m_CurrentMovableObject = movableObj;
-							//m_CurrentMovableObject.gameObject.transform.Translate ( Vector3.up * 5) ;
 						}
 					}
 
@@ -40,30 +39,27 @@ public class InputHandler : MonoBehaviour
 						if (m_PreviousMovableObject != null) {
 							m_PreviousMovableObject.gameObject.transform.position = moveLocation;
 						}
-
-						//if (m_CurrentMovableObject != null) {
-						//	m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * btnPositionZ);
-						//}
-						/*
-						if (button.CompareTag ("ZButton1")) {
-							//Move the moveable object to the z of Zbutton1
-							m_CurrentMovableObject.gameObject.transform.transform.position.z = button.transform.position.z;
-						}else if (button.CompareTag ("ZButton2")) {
-							//Move the moveable object to the z of Zbutton2
-						}else if (button.CompareTag ("ZButton3")) {
-							//Move the moveable object to the z of Zbutton3
-						}
-						*/
 					}
 				}
 			break;
 			case TouchPhase.Moved:
-				if (m_CurrentMovableObject) {
-					//Debug.Log("Position of Movable Obj: " + m_CurrentMovableObject.gameObject.transform.position.y);
-
+				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("MoveableCup")) {
 					//Moves up and down, left and right, but not forwards and backwards. 
-					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x /2);
-					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.up * touchedFinger.deltaPosition.y /2);
+					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x / 2);
+					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.up * touchedFinger.deltaPosition.y / 2);
+				}
+
+				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("SliderBtn")) {
+					Debug.Log ("Slider Button Z: " + m_CurrentMovableObject.gameObject.transform.position.z);
+
+
+					if (m_CurrentMovableObject.gameObject.transform.position.z >= 205 && m_CurrentMovableObject.gameObject.transform.position.z <= 255) {
+						m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * touchedFinger.deltaPosition.y / 2);
+					}else if (m_CurrentMovableObject.gameObject.transform.position.z < 205){
+						m_CurrentMovableObject.gameObject.transform.position = new Vector3 (m_CurrentMovableObject.gameObject.transform.position.x, m_CurrentMovableObject.gameObject.transform.position.y, m_CurrentMovableObject.gameObject.transform.position.z + 1);
+					} else if (m_CurrentMovableObject.gameObject.transform.position.z > 255){
+						m_CurrentMovableObject.gameObject.transform.position = new Vector3 (m_CurrentMovableObject.gameObject.transform.position.x, m_CurrentMovableObject.gameObject.transform.position.y, m_CurrentMovableObject.gameObject.transform.position.z - 1);
+					}
 
 				}
 			break;
