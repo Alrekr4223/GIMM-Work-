@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RotationSliderHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InputHandler.cs">
     <Files>
-      <File FileName="Assets\Scripts\InputHandler.cs" Line="66" Column="26" />
-      <File FileName="Assets\Scripts\RotationSliderHandler.cs" Line="16" Column="79" />
+      <File FileName="Assets\Scripts\InputHandler.cs" Line="112" Column="44" />
+      <File FileName="Assets\Scripts\MoveableObject.cs" Line="9" Column="55" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

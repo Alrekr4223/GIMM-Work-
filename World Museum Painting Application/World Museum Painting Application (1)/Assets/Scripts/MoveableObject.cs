@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MoveableObject : MonoBehaviour {
 
-	public void Start () {
-		
+	void Start () {
+		if (this.gameObject.GetComponent<Animator> () != null) {
+			this.gameObject.GetComponent<Animator> ().Stop (); 
+		}
 	}
 
-	public void Update () {
+	void Update () {
 		
 	}
 }

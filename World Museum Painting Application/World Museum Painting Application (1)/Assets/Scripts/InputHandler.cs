@@ -24,9 +24,31 @@ public class InputHandler : MonoBehaviour
 						Debug.Log ("Moveable Object: " + movableObj.name);
 						if (movableObj) {
 							m_CurrentMovableObject = movableObj;
+
+							if (m_CurrentMovableObject.CompareTag ("MoveableCup")) {
+
+								if (m_CurrentMovableObject != m_PreviousMovableObject) {
+
+									if (m_PreviousMovableObject != null) {
+										
+										float prevObjX = m_PreviousMovableObject.gameObject.transform.position.x;
+										float prevObjY = m_PreviousMovableObject.gameObject.transform.position.y; 
+										float prevObjZ = m_PreviousMovableObject.gameObject.transform.position.z;
+
+										m_PreviousMovableObject .gameObject.transform.position = new Vector3 (prevObjX, prevObjY - 30, prevObjZ);
+									}
+
+									float objX = m_CurrentMovableObject.gameObject.transform.position.x;
+									float objY = m_CurrentMovableObject.gameObject.transform.position.y; 
+									float objZ = m_CurrentMovableObject.gameObject.transform.position.z;
+
+									m_CurrentMovableObject.gameObject.transform.position = new Vector3 (objX, objY + 30, objZ);
+								}
+							}
 						}
 					}
 
+					/*
 					if (m_RayCastHit.collider.gameObject.GetComponent<ZTransferButton> () != null) {
 						GameObject button = m_RayCastHit.collider.gameObject.GetComponent<ZTransferButton> ().gameObject;
 						float btnPositionZ = button.transform.position.z;
@@ -40,31 +62,41 @@ public class InputHandler : MonoBehaviour
 							m_PreviousMovableObject.gameObject.transform.position = moveLocation;
 						}
 					}
+					*/
 				}
 			break;
 			case TouchPhase.Moved:
 				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("MoveableCup")) {
-					//Moves up and down, left and right, but not forwards and backwards. 
-					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x / 2);
-					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.up * touchedFinger.deltaPosition.y / 2);
+					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x / 3);
+					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * touchedFinger.deltaPosition.y / 3);
 				}
-
+				/*
 				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("SliderBtn")) {
 					Debug.Log ("Slider Button Z: " + m_CurrentMovableObject.gameObject.transform.position.z);
 
+					float staticX = m_CurrentMovableObject.gameObject.transform.position.x;
+					float staticY = m_CurrentMovableObject.gameObject.transform.position.y; 
+					float dynamicZ = m_CurrentMovableObject.gameObject.transform.position.z;
 
-					if (m_CurrentMovableObject.gameObject.transform.position.z >= 205 && m_CurrentMovableObject.gameObject.transform.position.z <= 255) {
+					//Prevents slider from moving too far along z axis in world position.
+					if (dynamicZ >= 205 && dynamicZ <= 255) {
 						m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * touchedFinger.deltaPosition.y / 2);
-					}else if (m_CurrentMovableObject.gameObject.transform.position.z < 205){
-						m_CurrentMovableObject.gameObject.transform.position = new Vector3 (m_CurrentMovableObject.gameObject.transform.position.x, m_CurrentMovableObject.gameObject.transform.position.y, m_CurrentMovableObject.gameObject.transform.position.z + 1);
-					} else if (m_CurrentMovableObject.gameObject.transform.position.z > 255){
-						m_CurrentMovableObject.gameObject.transform.position = new Vector3 (m_CurrentMovableObject.gameObject.transform.position.x, m_CurrentMovableObject.gameObject.transform.position.y, m_CurrentMovableObject.gameObject.transform.position.z - 1);
+
+						//Call the Rotation Slider Handler which rotates the cup based on the slider position. Sending the slider and the previously touched cup
+						m_CurrentMovableObject.GetComponent<RotationSliderHandler> ().RotationSlider (m_CurrentMovableObject, m_PreviousMovableObject);
+
+					}else if (dynamicZ < 205){
+						m_CurrentMovableObject.gameObject.transform.position = new Vector3 (staticX, staticY, dynamicZ + 1);
+					} else if (dynamicZ > 255){
+						m_CurrentMovableObject.gameObject.transform.position = new Vector3 (staticX, staticY, dynamicZ - 1);
 					}
 
 				}
+				*/
+
 			break;
 			case TouchPhase.Ended:
-				if (m_CurrentMovableObject != null) {
+				if (m_CurrentMovableObject != null && m_CurrentMovableObject != m_PreviousMovableObject) {
 					m_PreviousMovableObject = m_CurrentMovableObject;
 				}
 				m_CurrentMovableObject = null;
@@ -73,5 +105,12 @@ public class InputHandler : MonoBehaviour
 				break;
 			}
 		} 
+
+		if (Input.touches.Length == 2 && m_PreviousMovableObject != null) {
+			if (m_PreviousMovableObject.gameObject.GetComponent<Animator> () != null) {
+				m_PreviousMovableObject.gameObject.GetComponent<Animator> ().Play ("CupTip");
+				Debug.Log ("Double Touch Cup Tip Hit");
+			}
+		}
 	}
 }
