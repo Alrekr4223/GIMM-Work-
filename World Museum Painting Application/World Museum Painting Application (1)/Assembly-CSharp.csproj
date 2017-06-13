@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\InputHandler.cs" />
      <Compile Include="Assets\Scripts\MoveableObject.cs" />
      <Compile Include="Assets\Scripts\RotationSliderHandler.cs" />
+     <Compile Include="Assets\Scripts\SpillingParticleHandler.cs" />
      <Compile Include="Assets\Scripts\ZTransferButton.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />

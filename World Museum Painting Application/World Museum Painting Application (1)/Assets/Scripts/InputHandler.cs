@@ -72,6 +72,14 @@ public class InputHandler : MonoBehaviour
 				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("MoveableCup")) {
 					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x / 3);
 					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * touchedFinger.deltaPosition.y / 3);
+
+					if (Input.touches.Length == 2) {
+						if (m_CurrentMovableObject.gameObject.GetComponent<Animator> () != null) {
+							m_CurrentMovableObject.gameObject.GetComponent<Animator> ().Play ("CupTip");
+							Debug.Log ("Double Touch Cup Tip Hit Inside");
+						}
+					}
+
 				}
 				/*
 				 * Obsolete code that controls the tilt slider fucntionality.
@@ -114,8 +122,16 @@ public class InputHandler : MonoBehaviour
 		if (Input.touches.Length == 2 && m_PreviousMovableObject != null) {
 			if (m_PreviousMovableObject.gameObject.GetComponent<Animator> () != null) {
 				m_PreviousMovableObject.gameObject.GetComponent<Animator> ().Play ("CupTip");
-				Debug.Log ("Double Touch Cup Tip Hit");
+				Debug.Log ("Previous MO @ 2 Touches: " + m_PreviousMovableObject);
+				Debug.Log ("Double Touch Cup Tip Hit Outside");
 			}
 		}
+	}
+
+
+
+	public void SplliageTrigger (){
+		//Hit when you want to see a new particle effect 'spill' contents of cup.
+		Debug.Log ("Cup Should be Spilling");
 	}
 }

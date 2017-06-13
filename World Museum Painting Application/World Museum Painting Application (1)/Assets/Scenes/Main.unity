@@ -284,7 +284,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CrackedEarthMaterial
+  m_Name: Ideal_Image_TargetMaterial
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -326,7 +326,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: e3589cf5b2c49c146bc20c47e5c27bdb, type: 3}
+        m_Texture: {fileID: 2800000, guid: ed8852cd9ec035a41a8a2a53ae7409d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -753,6 +753,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.97, y: 4.98, z: 2.22}
   m_Center: {x: 0, y: 2.49, z: -0.01}
+--- !u!114 &352995240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352995236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c2a59a5d783a24ebbe02f9cc0f602c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &352995241
 Animator:
   serializedVersion: 3
@@ -2074,7 +2085,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.3333333}
+      m_Extent: {x: 0.5, y: 0, z: 0.35040987}
   m_Shapes:
     vertices: []
     shapes: []
@@ -2126,7 +2137,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000aaaaaabe000000000000803f000000000000000000000000000000bf00000000aaaaaa3e000000000000803f00000000000000000000803f0000003f00000000aaaaaabe000000000000803f000000000000803f000000000000003f00000000aaaaaa3e000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000ec68b3be000000000000803f000000000000000000000000000000bf00000000ec68b33e000000000000803f00000000000000000000803f0000003f00000000ec68b3be000000000000803f000000000000803f000000000000003f00000000ec68b33e000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
