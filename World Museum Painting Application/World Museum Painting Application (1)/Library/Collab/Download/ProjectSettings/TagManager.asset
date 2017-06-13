@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Indicator
+  - ZButton1
+  - ZButton2
+  - ZButton3
+  - MoveableCup
+  - SliderBtn
   layers:
   - Default
   - TransparentFX
