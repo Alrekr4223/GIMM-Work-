@@ -25,7 +25,6 @@ public class InputHandler : MonoBehaviour
 						if (movableObj) {
 							m_CurrentMovableObject = movableObj;
 
-							//Controls Y-Axis movement for each cup. When first clicked on, each cup will move upwards, indicating they've been selected. When a different cup is selected, the previous cup will return to the base Y-Axis location.  
 							if (m_CurrentMovableObject.CompareTag ("MoveableCup")) {
 
 								if (m_CurrentMovableObject != m_PreviousMovableObject) {
@@ -50,8 +49,6 @@ public class InputHandler : MonoBehaviour
 					}
 
 					/*
-					 * Obsolete Button code that controls the Z Transfer Button fucntionality.
-					 * 
 					if (m_RayCastHit.collider.gameObject.GetComponent<ZTransferButton> () != null) {
 						GameObject button = m_RayCastHit.collider.gameObject.GetComponent<ZTransferButton> ().gameObject;
 						float btnPositionZ = button.transform.position.z;
@@ -74,8 +71,6 @@ public class InputHandler : MonoBehaviour
 					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * touchedFinger.deltaPosition.y / 3);
 				}
 				/*
-				 * Obsolete code that controls the tilt slider fucntionality.
-				 * 
 				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("SliderBtn")) {
 					Debug.Log ("Slider Button Z: " + m_CurrentMovableObject.gameObject.transform.position.z);
 
