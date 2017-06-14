@@ -8,6 +8,15 @@ public class InputHandler : MonoBehaviour
 	private MoveableObject m_CurrentMovableObject;
 	private MoveableObject m_PreviousMovableObject;
 
+	private Animator objAnimator; 
+
+	void Start () {
+	
+		if (this.gameObject.GetComponent<Animator> () != null) {
+			objAnimator = this.gameObject.GetComponent<Animator> ();
+		}
+	}
+
 	void Update () 
 	{
 
@@ -25,6 +34,7 @@ public class InputHandler : MonoBehaviour
 						if (movableObj) {
 							m_CurrentMovableObject = movableObj;
 
+							/*
 							//Controls Y-Axis movement for each cup. When first clicked on, each cup will move upwards, indicating they've been selected. When a different cup is selected, the previous cup will return to the base Y-Axis location.  
 							if (m_CurrentMovableObject.CompareTag ("MoveableCup")) {
 
@@ -45,7 +55,7 @@ public class InputHandler : MonoBehaviour
 
 									m_CurrentMovableObject.gameObject.transform.position = new Vector3 (objX, objY + 30, objZ);
 								}
-							}
+							}*/
 						}
 					}
 
@@ -70,15 +80,8 @@ public class InputHandler : MonoBehaviour
 			break;
 			case TouchPhase.Moved:
 				if (m_CurrentMovableObject && m_CurrentMovableObject.CompareTag ("MoveableCup")) {
-					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x / 3);
-					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.back * touchedFinger.deltaPosition.y / 3);
-
-					if (Input.touches.Length == 2) {
-						if (m_CurrentMovableObject.gameObject.GetComponent<Animator> () != null) {
-							m_CurrentMovableObject.gameObject.GetComponent<Animator> ().Play ("CupTip");
-							Debug.Log ("Double Touch Cup Tip Hit Inside");
-						}
-					}
+					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.left * touchedFinger.deltaPosition.x / 3f);
+					m_CurrentMovableObject.gameObject.transform.Translate (Vector3.up * touchedFinger.deltaPosition.y / 3f);
 
 				}
 				/*
@@ -121,10 +124,21 @@ public class InputHandler : MonoBehaviour
 
 		if (Input.touches.Length == 2 && m_PreviousMovableObject != null) {
 			if (m_PreviousMovableObject.gameObject.GetComponent<Animator> () != null) {
-				m_PreviousMovableObject.gameObject.GetComponent<Animator> ().Play ("CupTip");
+				m_PreviousMovableObject.gameObject.GetComponent<Animation>().Play("CupTip");
+				objAnimator.Play ("CupTip");
 				Debug.Log ("Previous MO @ 2 Touches: " + m_PreviousMovableObject);
-				Debug.Log ("Double Touch Cup Tip Hit Outside");
+				Debug.Log ("Double Touch Hit Outside");
 			}
+		}
+
+
+		if (Input.GetKeyDown (KeyCode.DownArrow)) {
+
+			GameObject obj = GameObject.Find ("Cup For HoldingV2");
+			objAnimator = obj.GetComponent<Animator> ();
+			objAnimator.Play ("CupTip");
+
+			Debug.Log ("Animator Down Arrow Hit");
 		}
 	}
 
