@@ -10,7 +10,7 @@ This software uses Unity Game Engine and the Vuforia AR Software.
 For the Vurforia software: 
 An email and Vuforia account has been created to access image targets and license key
 
-Gmail Account: 
+Gmail Account: </br>
 Email: gimm2017worldmuseumapp@gmail.com
 Email Password: gimmgimmgimm
 
