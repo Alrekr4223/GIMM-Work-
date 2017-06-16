@@ -11,12 +11,12 @@ For the Vurforia software:
 An email and Vuforia account has been created to access image targets and license key
 
 Gmail Account: </br>
-Email: gimm2017worldmuseumapp@gmail.com
+Email: gimm2017worldmuseumapp@gmail.com </br>
 Email Password: gimmgimmgimm
 
-Vuforia Account: 
-Email: gimm2017worldmuseumapp@gmail.com
-Username: GIMMWorldMuseum2017
+Vuforia Account: </br>
+Email: gimm2017worldmuseumapp@gmail.com </br>
+Username: GIMMWorldMuseum2017 </br>
 Password: 123Gimmgimmgimm
 
 Vurofia License Key: 
